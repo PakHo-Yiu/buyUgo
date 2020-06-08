@@ -63,6 +63,15 @@ export default class extends wepy.app {
         iconPath:'/assets/icons/my.png',
         selectedIconPath:'/assets/icons/my-active.png'
       }]
+    },
+    //引用注册组件
+    usingComponents: {
+      // 分类导航组件
+      "van-sidebar": "./assets/vant/sidebar/index",
+      "van-sidebar-item": "./assets/vant/sidebar-item/index",
+      // 布局相关组件
+      "van-row": "./assets/vant/row/index",
+      "van-col": "./assets/vant/col/index",
     }
   }
 
@@ -73,8 +82,38 @@ export default class extends wepy.app {
   constructor () {
     super()
     this.use('requestfix')
-    //可以为异步的API,开启Promise功能,使得异步API调用的结果,返回值是Promise对象
+    // 可以为异步的API,开启Promise功能,使得异步API调用的结果,返回值是Promise对象
     this.use('promisify')
+    // 拦截器
+    this.intercept('request', {
+      // 发出请求时的回调函数
+      config (p) {
+        // 显示loading
+        wepy.showLoading({
+          title: '数据加载中...'
+        })
+        // 必须返回OBJECT参数对象，否则无法发送请求到服务端
+        return p;
+      },
+
+      // 请求成功后的回调函数
+      success (p) {
+        // 可以在这里对收到的响应数据对象进行加工处理
+        // 必须返回响应数据对象，否则后续无法对响应数据进行处理
+        return p;
+      },
+
+      // 请求失败后的回调函数
+      fail (p) {
+        // 必须返回响应数据对象，否则后续无法对响应数据进行处理
+        return p;
+      },
+
+      // 请求完成时的回调函数(请求成功或失败都会被执行)
+      complete (p) {
+        wepy.hideLoading()
+      }
+    })
   }
 
   onLaunch() {
