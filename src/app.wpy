@@ -14,7 +14,10 @@ export default class extends wepy.app {
       'pages/tabs/search',
       'pages/tabs/cart',
       'pages/tabs/me',
-      'pages/goods_detail/main'
+      //商品详情
+      'pages/goods_detail/main',
+      //商品列表
+      'pages/goods_list'
     ],
     window: {
       //分享按钮等组件背景色
