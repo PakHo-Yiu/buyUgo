@@ -64,7 +64,7 @@ export default class extends wepy.app {
         selectedIconPath:'/assets/icons/my-active.png'
       }]
     },
-    //引用注册组件
+    // 引用注册组件
     usingComponents: {
       // 分类导航组件
       "van-sidebar": "./assets/vant/sidebar/index",
@@ -72,6 +72,17 @@ export default class extends wepy.app {
       // 布局相关组件
       "van-row": "./assets/vant/row/index",
       "van-col": "./assets/vant/col/index",
+      // 搜索组件
+      "van-search": "./assets/vant/search/index",
+      // 单元格组件
+      "van-cell": "./assets/vant/cell/index",
+      "van-cell-group": "./assets/vant/cell-group/index",
+      // icon组件
+      "van-icon": "./assets/vant/icon/index",
+      // tag组件
+      "van-tag": "./assets/vant/tag/index",
+      // 商品卡片组件
+      "van-card": "./assets/vant/card/index"
     }
   }
 

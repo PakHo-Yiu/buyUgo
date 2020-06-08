@@ -1,17 +1,29 @@
 <template>
   <view>
-    商品列表
+    <!-- 商品列表区域 -->
+    <block wx:for="{{goodsList}}" wx:key="index">
+      <van-card
+      num="{{item.goods_number}}"
+      price="{{item.goods_price}}"
+      desc="描述信息"
+      title="{{item.goods_name}}"
+      thumb="{{item.goods_small_logo }}"
+    />
+    </block>
   </view>
 </template>
 
 <script>
 import wepy from 'wepy'
-
+import mix from '@/mixins/goods_list.js'
 
 export default class extends wepy.page {
-  onLoad(option){
-    console.log(option)
+  // config节点只能写在页面的js中 不能抽离到mixin
+  config = {
+    navigationBarTitleText: '商品列表'
   }
+
+  mixins = [mix]
 }
 </script>
 
