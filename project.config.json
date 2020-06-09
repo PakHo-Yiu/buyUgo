@@ -69,6 +69,13 @@
 					"pathName": "pages/goods_list",
 					"query": "query=手机双卡双待",
 					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "商品详情",
+					"pathName": "pages/goods_detail/main",
+					"query": "goods_id= 57431",
+					"scene": null
 				}
 			]
 		}
