@@ -64,10 +64,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "商品列表",
 					"pathName": "pages/goods_list",
-					"query": "query=手机",
+					"query": "query=手机双卡双待",
 					"scene": null
 				}
 			]
