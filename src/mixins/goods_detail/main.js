@@ -50,6 +50,16 @@ export default class extends wepy.mixin {
       this.addressInfo = res
       wepy.setStorageSync('address', res)
       this.$apply()
+    },
+
+    // 加入购物车操作
+    addToCart() {
+      // console.log(this.goodsInfo)
+      this.$parent.addGoodsToCart(this.goodsInfo)
+      wepy.showToast({
+        title: '已加入购物车',
+        icon: 'success'
+      })
     }
   }
 
@@ -61,6 +71,11 @@ export default class extends wepy.mixin {
       const addr = this.addressInfo
       const str = addr.provinceName + addr.cityName + addr.countyName + addr.detailInfo
       return str
+    },
+
+    // 所有已经勾选的商品数量
+    total() {
+      return this.$parent.globalData.total
     }
   }
 

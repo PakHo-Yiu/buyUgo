@@ -50,15 +50,20 @@ export default class extends wepy.mixin {
     if(res.meta.status !== 200) {
       return wepy.baseToast()
     }
-
+    
     this.goodsList = [...this.goodsList, ...res.message.goods]
-    for(let i= 0; i< this.goodsList.length; i++) {
-      if(this.goodsList[i].goods_small_logo !== ''){
-        this.goodsList[i].goods_small_logo = this.goodsList[i].goods_small_logo
-      }else{
-        this.goodsList[i].goods_small_logo = 'http://image2.suning.cn/uimg/b2c/newcatentries/0070098296-000000000171085364_1_400x400.jpg'
+    // for(let i= 0; i< this.goodsList.length; i++) {
+    //   if(this.goodsList[i].goods_small_logo !== ''){
+    //     this.goodsList[i].goods_small_logo = this.goodsList[i].goods_small_logo
+    //   }else{
+    //     this.goodsList[i].goods_small_logo = 'http://image2.suning.cn/uimg/b2c/newcatentries/0070098296-000000000171085364_1_400x400.jpg'
+    //   }
+    // }
+    this.goodsList.forEach(x => {
+      if(x.goods_small_logo === '') {
+        x.goods_small_logo = 'http://image2.suning.cn/uimg/b2c/newcatentries/0070098296-000000000171085364_1_400x400.jpg'
       }
-    }
+    })
 
     this.total = res.message.total
     console.log(this.total)

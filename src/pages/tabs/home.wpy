@@ -19,7 +19,7 @@
     </view>
     <!-- 楼层 -->
     <view class="floor-container">
-      <view class="floor-item" wx:for"{{floorData}}" wx:key="index">
+      <view class="floor-item" wx:for="{{floorData}}" wx:key="index">
         <!-- 楼层标题 -->
         <image class="floor-item-title" src="{{item.floor_title.image_src}}"/>
         <!-- 楼层图片 -->
